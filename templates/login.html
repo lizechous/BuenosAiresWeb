@@ -1,0 +1,57 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block content %}
+<!-- Breadcrumb Section Begin -->
+    <div class="breacrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <a href="{% url 'index' %}"><i class="fa fa-home"></i> Inicio</a>
+                        <span>Ingresar</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb Form Section Begin -->
+
+    <!-- Register Section Begin -->
+    <div class="register-login-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="login-form">
+                        <h2>Ingresar</h2>
+                        <form action="#">
+                            <div class="group-input">
+                                <label for="username">Nombre de usuario o email *</label>
+                                <input type="text" id="username">
+                            </div>
+                            <div class="group-input">
+                                <label for="pass">Contraseña *</label>
+                                <input type="text" id="pass">
+                            </div>
+                            <div class="group-input gi-check">
+                                <div class="gi-more">
+                                    <label for="save-pass">
+                                        Guardar contraseña
+                                        <input type="checkbox" id="save-pass">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <a href="#" class="forget-pass">Olvidaste tu contraseña</a>
+                                </div>
+                            </div>
+                            <button type="submit" class="site-btn login-btn">Ingresar</button>
+                        </form>
+                        <div class="switch-login">
+                            <a href="{% url 'register' %}" class="or-login">O create una cuenta</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Register Form Section End -->
+{% endblock %}

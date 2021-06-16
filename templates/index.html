@@ -1,0 +1,36 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block content %}
+    <!-- Hero Section Begin -->
+    <section class="hero-section">
+        <div class="hero-items owl-carousel">
+            <div class="single-hero-items set-bg" data-setbg="{% static 'images/airesportada2.png'%}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <span>Buenos Aires Web</span>
+                            <h1>Aires Acondicionados</h1>
+                            <p>Tenemos muchas variedades para elegir</p>
+                            <a href="#" class="primary-btn">Compra ahora</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="single-hero-items set-bg" data-setbg="{% static 'images/tecnico.jpg'%}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <span>Buenos Aires Web</span>
+                            <h1>Solicita tu mantención</h1>
+                            <p>Contamos con excelentes técnicos para realizar 
+                            reparación o mantención a tu equipo.</p>
+                            <a href="#" class="primary-btn">Ingresa solicitud</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+{% endblock %}
