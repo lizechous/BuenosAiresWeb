@@ -85,8 +85,16 @@
                 </div>
                 <nav class="nav-menu mobile-menu">
                     <ul>
+
+
                         <li class="active"><a href="{% url 'index' %}">Inicio</a></li>
                         <li><a href="{% url 'shop' %}">Tienda</a></li>
+                        <li><a href="#">Tienda BA <i class="icon_bag_alt"></i></a>
+                            <ul class="dropdown">
+                                <li><a href="{% url 'agregar_producto' %}">Agregar Producto</a></li>
+                                <li><a href="{% url 'lista_productos' %}">Lista Productos</a></li>
+                            </ul>
+                        </li>
                         <li><a href="{% url 'servicio' %}">Servicios</a></li>
                         <li><a href="{% url 'contact' %}">Contacto</a></li>
                         <li><a href="{% url 'register' %}">Registrarse</a></li>

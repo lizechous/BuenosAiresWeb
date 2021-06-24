@@ -1,0 +1,56 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+
+
+{% block content %}
+<div class="container mt-3 pb-3">
+    <div class="col-md-12">
+    <br>
+    <br>
+<h2> Listado de productos BA </h2> 
+   <!-- {% comment %} {% if object_list %} {% endcomment %} -->
+    <hr>
+    <table class="table table-hover">
+
+        <thead>
+            <tr>
+                <th> </th>
+                <th>ID producto</th>
+                <th>Nombre producto</th>
+                <th>Descripcion</th>
+                <th>Marca</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for bodegaproducto in object_list %}
+            <tr>
+                <td>
+                    <img src="{% static 'images/modelo3.jpg'%}" alt="">
+                </td>
+                <td>{{ bodegaproducto.id_producto}}</td>
+                <td>{{ bodegaproducto.nombre_producto}}</td>
+                <td>{{ bodegaproducto.descripcion}}</td>
+                <td>{{ bodegaproducto.marca }}</td>
+                <td>{{ bodegaproducto.precio }}</td> 
+                <td>{{ bodegaproducto.en_stock }}</td>
+
+
+                
+                <td><a class="btn btn-primary" href="{% url 'editar_producto' bodegaproducto.id_producto %}">Editar</a></td>
+                <td><a class="btn btn-danger" href="{% url 'eliminar_producto' bodegaproducto.id_producto %}">Eliminar</a></td> 
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+</table>
+
+
+</div>
+</div>
+{% endblock %}
+
+
