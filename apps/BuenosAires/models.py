@@ -126,6 +126,9 @@ class DetalleFacturaVenta(models.Model):
     class Meta:
         managed = False
         db_table = 'detalle_factura_venta'
+        
+    
+            
 
 
 class DjangoAdminLog(models.Model):
@@ -247,3 +250,7 @@ class WebFacturaVenta(models.Model):
     class Meta:
         managed = False
         db_table = 'web_factura_venta'
+        
+    
+    
+        

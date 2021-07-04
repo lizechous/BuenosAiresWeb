@@ -1,23 +1,17 @@
 {% extends 'base.html' %} 
-{% load static %} 
+{% load static %}
+
+
 
 {% block content %}
-<!-- Breadcrumb Section Begin -->
-    <div class="breacrumb-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb-text">
-                        <a href="{% url 'index' %}"><i class="fa fa-home"></i> Inicio</a>
-                        <span>Tienda</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Breadcrumb Section Begin -->
+<div class="container mt-3 pb-3">
+    <div class="col-md-12">
+    <br>
+    <br>
+<h2> Tienda BA </h2> 
+   <!-- {% comment %} {% if object_list %} {% endcomment %} -->
+    <hr>
 
-    <!-- Product Shop Section Begin -->
     <section class="product-shop spad">
         <div class="container">
             <div class="row">
@@ -52,12 +46,46 @@
                         </div>
                     </div>
                     <div class="product-list">
+
+                        
+
                         <div class="row">
                             
+                            
+                        
+                            <div class="col-12">
+                                <div class="row">
+
+                                    {% for bodegaproducto in object_list %}
+                                        <div class="col-md-3 col-sm-12 col-lg-4">
+                                            <div class="card" style="width: 100%">
+                                                <img src="{% static 'images/modelo3.jpg'%}" width="180" height="100">
+
+                                                <div class="card-body">
+                                                    <h5 class="card-title"> {{ bodegaproducto.nombre_producto}} </h5>
+                                                    <p class="card-text"> {{ bodegaproducto.marca }} </p>
+                                                    <p class="card-text"> $ {{ bodegaproducto.precio }} </p>
+
+                                                </div>
+                                                <div class="card-footer text-center">
+                                                    <a href="{% url 'agregar' bodegaproducto.id_producto %}" class="btn btn-success">Agregar</a>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    {% endfor %}
+                                    
+                                </div>
+
+                            </div>
                            
                             
                             
                         </div>
+
+                        
                     </div>
                     <div class="loading-more">
                         <i class="icon_loading"></i>
@@ -65,11 +93,29 @@
                             Cargar más
                         </a>
                     </div>
+
+                    <br><br>
+                    
+                    
                 </div>
+                
+                
             </div>
         </div>
+        <div style="float:center;">
+            <!-- <p style="color: black;"> Total: ${{importe_total_carro}}</p> -->
+
+            {% include 'bodegaProducto/widget.html' %}
+        </div>
     </section>
-    <!-- Product Shop Section End -->
 
 
+
+    
+
+
+</div>
+</div>
 {% endblock %}
+
+

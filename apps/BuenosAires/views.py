@@ -20,6 +20,9 @@ from rest_framework import status
 from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser 
 from .serializers import BodegaProductoSerializer
+
+# IMPORTACION DEL CARRO
+from .carro import Carro
 # from django.shortcuts import render, redirect, get_object_or_404
 
 
@@ -64,3 +67,34 @@ def bodegaProducto_element(request, pk):
     if request.method == 'GET':
         serializer = BodegaProductoSerializer(objeto)
         return Response(serializer.data)
+
+class Lista_productos_tienda(ListView):
+    model = BodegaProducto
+    template_name = 'bodegaProducto/productos_tienda.html'
+    
+
+
+    
+# --------------CARRO --------------------------------------------------------
+def agregar_producto_carro(request,producto_id):
+    carro = Carro(request)
+    producto= BodegaProducto.objects.get(id_producto=producto_id)
+    carro.agregar(producto=producto)
+    return redirect("listar_productos_tienda")
+# # bodegaProducto/listar_productos_tienda
+def eliminar_producto_carro (request, producto_id):
+    carro = Carro(request)
+    producto= BodegaProducto.objects.get(id_producto=producto_id)
+    carro.eliminar(producto=producto)
+    return redirect("listar_productos_tienda")
+
+def restar_producto_carro (request, producto_id):
+    carro = Carro(request)
+    producto= BodegaProducto.objects.get(id_producto=producto_id)
+    carro.restar_producto(producto=producto)
+    return redirect("listar_productos_tienda")
+
+def limpiar_carro (request, producto_id):
+    carro = Carro(request)
+    carro.limpiar_carro()
+    return redirect("listar_productos_tienda")

@@ -88,8 +88,10 @@
 
 
                         <li class="active"><a href="{% url 'index' %}">Inicio</a></li>
-                        <li><a href="{% url 'shop' %}">Tienda</a></li>
-                        <li><a href="#">Tienda BA <i class="icon_bag_alt"></i></a>
+                        {% comment %} <li><a href="{% url 'shop' %}">Tienda</a></li> {% endcomment %}
+                        <li><a href="{% url 'listar_productos_tienda' %}">Tienda </a></li>
+                        {% comment %} <li><a href="{% url 'detalle_factura' %}">Detalle Factura </a></li> {% endcomment %}
+                        <li><a href="#">Productos <i class="icon_bag_alt"></i></a>
                             <ul class="dropdown">
                                 <li><a href="{% url 'agregar_producto' %}">Agregar Producto</a></li>
                                 <li><a href="{% url 'lista_productos' %}">Lista Productos</a></li>
