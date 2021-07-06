@@ -3,7 +3,7 @@ from django.conf.urls import url
 
 # from apps.BuenosAires.webpayplus import routes
 from . import views 
-from apps.BuenosAires.views import bodegaProducto_collection, bodegaProducto_element, Agregar_producto, Lista_productos, Modificar_producto, Eliminar_producto, agregar_producto_carro, eliminar_producto_carro, restar_producto_carro, limpiar_carro, Crear_solicitud, Lista_solicitudes, Eliminar_solicitud, actualizar_stock, Agendar_solicitud, Lista_solicitudes_agendadas
+from apps.BuenosAires.views import bodegaProducto_collection, bodegaProducto_element, Agregar_producto, Lista_productos, Modificar_producto, Eliminar_producto, agregar_producto_carro, eliminar_producto_carro, restar_producto_carro, limpiar_carro, Crear_solicitud, Lista_solicitudes, Eliminar_solicitud, actualizar_stock, Agendar_solicitud, Lista_solicitudes_agendadas, Modificar_estado, Lista_historial_servicios
 # from apps.BuenosAires.webpayplus.routes import webpay_plus_create, webpay_plus_commit
 
 # Lista_productos, Modificar_producto, Eliminar_producto
@@ -46,4 +46,6 @@ urlpatterns = [
     # --------------------AGENDA SOLICITUDES------------------------------------------------------
     path('servicio/agendar_solicitud/<int:pk>', views.Agendar_solicitud.as_view(), name='agendar_solicitud'),
     path('servicio/lista_solicitudes_agendadas', views.Lista_solicitudes_agendadas.as_view() , name="lista_agenda_solicitudes"),
+    path('servicio/modificar_estado/<int:pk>', views.Modificar_estado.as_view(), name='modificar_estado'),
+    path('servicio/lista_historial_servicios', views.Lista_historial_servicios.as_view() , name="lista_historial_servicios"),
 ]

@@ -28,19 +28,24 @@
             </tr>
         </thead>
         <tbody>
-            {% for agenda in object_list %}
+            {% for historial in object_list %}
             <tr>
                 
-                <td>{{ agenda.id_solicitud}}</td>
-                <td>{{ agenda.id_tec}}</td>
-                <td>{{ agenda.rut_tecnico}}</td>
-                <td>{{ agenda.acepta_fecha_visita }}</td>
-                <td>{{ agenda.fecha_visita_tec }}</td> 
-                <td>{{ agenda.estado_ss }}</td>
+                <td>{{ historial.id_solicitud}}</td>
+                <td>{{ historial.s_rut}}</td>
+                <td>{{ historial.s_telefono}}</td>
+                <td>{{ historial.s_correo }}</td>
+                <td>{{ historial.s_tipo_servicio }}</td> 
+                <td>{{ historial.descripcion_req }}</td>
+
+                <td>{{ historial.id_tec}}</td>
+                <td>{{ historial.rut_tecnico}}</td>
+                <td>{{ historial.acepta_fecha_visita }}</td>
+                <td>{{ historial.fecha_visita_tec }}</td> 
+                <td>{{ historial.estado_ss }}</td>
                 
                 
                
-                <td><a class="btn btn-primary" style="color:white;" href="{% url 'modificar_estado' agenda.id_solicitud %}">Modificar</a></td>
 
                 
                 

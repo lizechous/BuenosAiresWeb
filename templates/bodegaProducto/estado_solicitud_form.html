@@ -23,18 +23,19 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="register-form">
-                        <h3>Ingresar solicitud</h3>
+                        <h3>Actualización del Estado del Servicio</h3>
                         <br><br>
                         <form name="contact_form" class="default-form contact-form" action="" method="post">
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div class="form-group">
-                                    <form method="POST" >
+                                    <form method="POST">
                                         {% csrf_token %} 
                                         {{ form.as_p }}
+
                                         
                                         <br>
-                                        <button class="btn btn-primary" type="submit">Crear solicitud</button>
+                                        <button class="btn btn-primary" type="submit">Agregar a historial</button>
                                     </form>
                                     </div>                       
                                 </div>

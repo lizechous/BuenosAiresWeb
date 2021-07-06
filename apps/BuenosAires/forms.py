@@ -28,6 +28,9 @@ class BodegaProductoForm(ModelForm):
         
 
 
+
+
+
 class SolicitudServicioForm(ModelForm):
     class Meta:
         model = SolicitudServicio
@@ -41,7 +44,7 @@ class SolicitudServicioForm(ModelForm):
             's_correo': 'Correo electrónico',
             's_tipo_servicio': 'Tipo de servicio',
             # 'fecha_creacion': 'Fecha ',
-            'fecha_visita': 'Fecha de visita',
+            'fecha_visita': 'Fecha sugerida',
             'descripcion_req': 'Descripción',
             # 'estado_ss' : "Estado",
         }
@@ -80,6 +83,25 @@ class SolicitudServicioAgendaForm(ModelForm):
             'rut_tecnico': forms.TextInput(attrs={'class': 'form-control'}),
             'acepta_fecha_visita': forms.TextInput(attrs={'class': 'form-control'}),
             'fecha_visita_tec': forms.TextInput(attrs={'class': 'form-control'}),
+            'estado_ss' : forms.TextInput(attrs={'class': 'form-control'}),
+            
+        }
+        
+class SolicitudServicioEstadoForm(ModelForm):
+    class Meta:
+        model = SolicitudServicio
+        fields = ['id_solicitud','id_tec', 'estado_ss']
+
+        labels = {
+           'id_solicitud': 'ID Solicitud',
+           'id_tec': 'ID Técnico',
+            'estado_ss': 'Estado solicitud',
+           
+        }
+
+        widgets = {
+            'id_solicitud': forms.TextInput(attrs={'class': 'form-control'}),
+            'id_tec': forms.Select(attrs={'class': 'form-control'}), 
             'estado_ss' : forms.TextInput(attrs={'class': 'form-control'}),
             
         }

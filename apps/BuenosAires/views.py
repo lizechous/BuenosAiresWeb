@@ -10,7 +10,7 @@ from django.http import HttpResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from .forms import BodegaProductoForm, SolicitudServicioForm, SolicitudServicioAgendaForm
+from .forms import BodegaProductoForm, SolicitudServicioForm, SolicitudServicioAgendaForm, SolicitudServicioEstadoForm
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
@@ -139,3 +139,14 @@ class Agendar_solicitud(UpdateView):
 class Lista_solicitudes_agendadas(ListView):
     model = SolicitudServicio
     template_name = 'bodegaProducto/lista_solicitudes_agendadas.html'
+    
+    
+class Modificar_estado(UpdateView):
+    model = SolicitudServicio
+    form_class = SolicitudServicioEstadoForm
+    template_name = 'bodegaProducto/estado_solicitud_form.html'
+    success_url = reverse_lazy('lista_historial_servicios') 
+    
+class Lista_historial_servicios(ListView):
+    model = SolicitudServicio
+    template_name = 'bodegaProducto/lista_agenda_historial.html'
