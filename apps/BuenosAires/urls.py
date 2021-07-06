@@ -1,7 +1,11 @@
 from django.urls import path, include
 from django.conf.urls import url
+
+# from apps.BuenosAires.webpayplus import routes
 from . import views 
-from apps.BuenosAires.views import bodegaProducto_collection, bodegaProducto_element, Agregar_producto, Lista_productos, Modificar_producto, Eliminar_producto, agregar_producto_carro, eliminar_producto_carro, restar_producto_carro, limpiar_carro
+from apps.BuenosAires.views import bodegaProducto_collection, bodegaProducto_element, Agregar_producto, Lista_productos, Modificar_producto, Eliminar_producto, agregar_producto_carro, eliminar_producto_carro, restar_producto_carro, limpiar_carro, Crear_solicitud, Lista_solicitudes, Eliminar_solicitud
+# from apps.BuenosAires.webpayplus.routes import webpay_plus_create, webpay_plus_commit
+
 # Lista_productos, Modificar_producto, Eliminar_producto
 urlpatterns = [
 
@@ -31,4 +35,8 @@ urlpatterns = [
     path('restar/<int:producto_id>', views.restar_producto_carro , name="restar"),
     path('limpiar', views.limpiar_carro , name="limpiar"),
     
+    # ------------SOLICITUD SERVICIO--------------------------
+    path('servicio/crear_solicitud', views.Crear_solicitud.as_view(), name="crear_solicitud"),   
+    path('servicio/lista_solicitudes', views.Lista_solicitudes.as_view(), name="lista_solicitudes"),
+    path('servicio/eliminar_solicitud/<int:pk>', views.Eliminar_solicitud.as_view(), name='eliminar_solicitud'),
 ]

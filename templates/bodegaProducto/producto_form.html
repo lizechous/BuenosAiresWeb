@@ -7,10 +7,11 @@
     <!-- Breadcrumb Section Begin -->
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="col-lg-6 offset-lg-3">
                 <div class="contact-area style-two">
                     <div class="section-title">
-                        <br>
+                        <br><br>
+                        
                         <h3>Agrega un producto</h3>
                     </div>
                     <form name="contact_form" class="default-form contact-form" action="" method="post">
@@ -21,7 +22,7 @@
                                     {% csrf_token %} 
                                     {{ form.as_p }}
                                     <br>
-                                    <button type="submit">Agregar producto</button>
+                                    <button class="btn btn-primary" type="submit">Agregar producto</button>
                                 </form>
                                 </div>                       
                             </div>

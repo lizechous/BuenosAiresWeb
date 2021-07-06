@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import BodegaProducto
+from .models import BodegaProducto, SolicitudServicio
 from django.views.generic import ListView
 
 from .forms import BodegaProductoForm
@@ -10,7 +10,7 @@ from django.http import HttpResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from .forms import BodegaProductoForm
+from .forms import BodegaProductoForm, SolicitudServicioForm
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
@@ -27,6 +27,7 @@ from .carro import Carro
 
 
 
+# -----------CRUD PRODUCTOS BA---------------------------------------
 class Agregar_producto(CreateView): 
     model = BodegaProducto 
     form_class = BodegaProductoForm
@@ -37,7 +38,6 @@ class Lista_productos(ListView):
     model = BodegaProducto
     template_name = 'bodegaProducto/lista_productos.html'
 
-# # SE MODIFICA UNA CARRERA 
 class Modificar_producto(UpdateView):
     model = BodegaProducto
     form_class = BodegaProductoForm
@@ -51,7 +51,7 @@ class Eliminar_producto(DeleteView):
     success_url = reverse_lazy('lista_productos')
 
 
-# APIS 
+#------------ APIS ---------------------------------------------------
 @api_view(['GET'])
 def bodegaProducto_collection(request):
     if request.method == 'GET':
@@ -98,3 +98,20 @@ def limpiar_carro (request, producto_id):
     carro = Carro(request)
     carro.limpiar_carro()
     return redirect("listar_productos_tienda")
+
+
+# --------------SOLICITUD DE SERVICIO------------------------------------
+class Crear_solicitud(CreateView): 
+    model = SolicitudServicio
+    form_class = SolicitudServicioForm
+    template_name = 'bodegaProducto/crear_solicitud_form.html' 
+    success_url = reverse_lazy("crear_solicitud") 
+    
+class Lista_solicitudes(ListView):
+    model = SolicitudServicio
+    template_name = 'bodegaProducto/lista_solicitudes.html'
+
+class Eliminar_solicitud(DeleteView):
+    model = SolicitudServicio
+    template_name = 'bodegaProducto/eliminar_solicitud.html'
+    success_url = reverse_lazy('lista_solicitudes')

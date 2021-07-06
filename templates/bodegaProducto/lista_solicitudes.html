@@ -1,0 +1,57 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+
+
+{% block content %}
+<div class="container mt-3 pb-3">
+    <div class="col-md-12">
+    <br>
+    <br>
+<h2> Solicitudes de servicios BA </h2> 
+   <!-- {% comment %} {% if object_list %} {% endcomment %} -->
+    <hr>
+    <table class="table table-hover">
+
+        <thead>
+            <tr>
+                
+                <th>ID solicitud</th>
+                <th>Rut cliente</th>
+                <th>Telefono</th>
+                <th>Correo</th>
+                <th>Tipo servicio</th>
+                <th>Fecha visita</th>
+                <th>Descripcion</th>
+                
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for solicitud in object_list %}
+            <tr>
+                
+                <td>{{ solicitud.id_solicitud}}</td>
+                <td>{{ solicitud.s_rut}}</td>
+                <td>{{ solicitud.s_telefono}}</td>
+                <td>{{ solicitud.s_correo }}</td>
+                <td>{{ solicitud.s_tipo_servicio }}</td> 
+                <td>{{ solicitud.fecha_visita }}</td>
+                <td>{{ solicitud.descripcion_req }}</td>
+                
+                <td><a class="btn btn-primary" style="color:white;">✓</a></td>
+                <td><a class="btn btn-danger" style="color:white;" href="{% url 'eliminar_solicitud' solicitud.id_solicitud %}">X</a></td> 
+                
+                
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+</table>
+
+
+</div>
+</div>
+{% endblock %}
+
+

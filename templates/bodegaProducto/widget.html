@@ -1,9 +1,11 @@
+
+
 <table class="table table-bordered" style="color: black; ">
 
     <thead>
         <tr>
-            <th colspan="5" class="text-center">
-                Detalle compra
+            <th colspan="5" class="text-center" >
+                   <h4> Detalle compra</h4> 
             </th>
 
         </tr>
@@ -69,8 +71,27 @@
 
                 <b>Total: ${{importe_total_carro}}</b>
                 
+
+
+                
+
             </td>
+
+            
+            
         </tr>
     </tfoot>
 
 </table>
+<br>
+<br>
+    <br>
+<div >
+  <u style="color: orange;"> <h3 style="color: orange;">  <b> Sección de pagos   </b></h3></u>  <br><br>
+
+    <div id="paypal-button-container"></div>
+
+</div>
+{% block javascript_paypal %}
+    
+{% endblock javascript_paypal %}

@@ -96,8 +96,14 @@
                                 <li><a href="{% url 'agregar_producto' %}">Agregar Producto</a></li>
                                 <li><a href="{% url 'lista_productos' %}">Lista Productos</a></li>
                             </ul>
+                        </li>  
+                        <li><a href="#">Solicitud de servicio <i class="icon_bag_alt"></i></a>
+                            <ul class="dropdown">
+                                <li><a href="{% url 'crear_solicitud' %}">Crear solicitud</a></li>
+                                <li><a href="{% url 'lista_solicitudes' %}">Lista solicitudes</a></li>
+                            </ul>
                         </li>
-                        <li><a href="{% url 'servicio' %}">Servicios</a></li>
+                        {% comment %} <li><a href="{% url 'servicio' %}">Servicios</a></li> {% endcomment %}
                         <li><a href="{% url 'contact' %}">Contacto</a></li>
                         <li><a href="{% url 'register' %}">Registrarse</a></li>
                         <li><a href="{% url 'login' %}">Ingresar <i class="fa fa-user"></i></a></li>
@@ -202,6 +208,39 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Integ
     <script src="{% static 'js/jquery.slicknav.js' %}"></script>
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
+    
+{% block javascript_paypal %}
+
+<script
+    src="https://www.paypal.com/sdk/js?client-id=AQB7DtAmLDbggWla4HvEFAZlkSd9odvtaHUGCAcLh44lTcRLEYdCjOfv_jcmK_wHK1G0fnZwAQRfhwgx"> // Required. Replace YOUR_CLIENT_ID with your sandbox client ID.
+  </script>
+
+
+  <script>
+  paypal.Buttons({
+    createOrder: function(data, actions) {
+      // This function sets up the details of the transaction, including the amount and line item details.
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: '{{importe_total_carro}}'
+          }
+        }]
+      });
+    },
+    onApprove: function(data, actions) {
+      // This function captures the funds from the transaction.
+      return actions.order.capture().then(function(details) {
+        // This function shows a transaction success message to your buyer.
+        alert('Transacción completada con éxito ' + details.payer.name.given_name);
+      });
+    }
+  }).render('#paypal-button-container');
+  //This function displays Smart Payment Buttons on your web page.
+</script>
+
+{% endblock javascript_paypal %}
+    
 
     {% block javascript %}{% endblock %}
 
