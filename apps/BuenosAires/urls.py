@@ -3,7 +3,7 @@ from django.conf.urls import url
 
 # from apps.BuenosAires.webpayplus import routes
 from . import views 
-from apps.BuenosAires.views import bodegaProducto_collection, bodegaProducto_element, Agregar_producto, Lista_productos, Modificar_producto, Eliminar_producto, agregar_producto_carro, eliminar_producto_carro, restar_producto_carro, limpiar_carro, Crear_solicitud, Lista_solicitudes, Eliminar_solicitud
+from apps.BuenosAires.views import bodegaProducto_collection, bodegaProducto_element, Agregar_producto, Lista_productos, Modificar_producto, Eliminar_producto, agregar_producto_carro, eliminar_producto_carro, restar_producto_carro, limpiar_carro, Crear_solicitud, Lista_solicitudes, Eliminar_solicitud, actualizar_stock, Agendar_solicitud, Lista_solicitudes_agendadas
 # from apps.BuenosAires.webpayplus.routes import webpay_plus_create, webpay_plus_commit
 
 # Lista_productos, Modificar_producto, Eliminar_producto
@@ -39,4 +39,11 @@ urlpatterns = [
     path('servicio/crear_solicitud', views.Crear_solicitud.as_view(), name="crear_solicitud"),   
     path('servicio/lista_solicitudes', views.Lista_solicitudes.as_view(), name="lista_solicitudes"),
     path('servicio/eliminar_solicitud/<int:pk>', views.Eliminar_solicitud.as_view(), name='eliminar_solicitud'),
+    
+    
+    path('shop/actualizar_stock/<int:pk>', views.actualizar_stock.as_view(), name='actualizar_stock'),
+    
+    # --------------------AGENDA SOLICITUDES------------------------------------------------------
+    path('servicio/agendar_solicitud/<int:pk>', views.Agendar_solicitud.as_view(), name='agendar_solicitud'),
+    path('servicio/lista_solicitudes_agendadas', views.Lista_solicitudes_agendadas.as_view() , name="lista_agenda_solicitudes"),
 ]

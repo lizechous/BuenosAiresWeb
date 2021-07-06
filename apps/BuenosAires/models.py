@@ -203,6 +203,8 @@ class MaestroUsuario(models.Model):
     class Meta:
         managed = False
         db_table = 'maestro_usuario'
+    
+  
 
 
 class SolicitudServicio(models.Model):

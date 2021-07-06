@@ -57,3 +57,29 @@ class SolicitudServicioForm(ModelForm):
             # 'estado_ss' : forms.TextInput(attrs={'class': 'form-control'}),
         }
         
+class SolicitudServicioAgendaForm(ModelForm):
+    class Meta:
+        model = SolicitudServicio
+        fields = ['id_solicitud','id_tec', 'rut_tecnico', 'acepta_fecha_visita', 'fecha_visita_tec', 'estado_ss']
+
+        labels = {
+            
+            'id_solicitud': 'ID Solicitud',
+            'id_tec': 'ID Tecnico',
+            'rut_tecnico': 'Rut tecnico',
+            'acepta_fecha_visita': 'Acepta fecha visita',
+            'fecha_visita_tec': 'Fecha de visita',
+            # 'fecha_creacion': 'Fecha ',
+            'estado_ss': 'Estado solicitud',
+           
+        }
+
+        widgets = {
+            'id_solicitud': forms.TextInput(attrs={'class': 'form-control'}),
+            'id_tec': forms.Select(attrs={'class': 'form-control'}), 
+            'rut_tecnico': forms.TextInput(attrs={'class': 'form-control'}),
+            'acepta_fecha_visita': forms.TextInput(attrs={'class': 'form-control'}),
+            'fecha_visita_tec': forms.TextInput(attrs={'class': 'form-control'}),
+            'estado_ss' : forms.TextInput(attrs={'class': 'form-control'}),
+            
+        }

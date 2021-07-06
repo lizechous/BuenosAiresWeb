@@ -71,7 +71,10 @@
 
                                                 </div>
                                                 <div class="card-footer text-center">
-                                                    <a href="{% url 'agregar' bodegaproducto.id_producto %}" class="btn btn-success">Agregar</a>
+                                                    <a href="{% url 'agregar' bodegaproducto.id_producto %}" class="btn btn-primary">Agregar</a>
+                                                    <br><br>
+                                                    <a href="{% url 'actualizar_stock' bodegaproducto.id_producto %}" class="btn btn-success">Actualizar stock</a>
+
                                                 </div>
 
                                             </div>

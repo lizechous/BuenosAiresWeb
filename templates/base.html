@@ -98,9 +98,10 @@
                             </ul>
                         </li>  
                         <li><a href="#">Solicitud de servicio <i class="icon_bag_alt"></i></a>
-                            <ul class="dropdown">
+                            <ul class="dropdown">  
                                 <li><a href="{% url 'crear_solicitud' %}">Crear solicitud</a></li>
-                                <li><a href="{% url 'lista_solicitudes' %}">Lista solicitudes</a></li>
+                                <li><a href="{% url 'lista_solicitudes' %}">Solicitudes de servicios</a></li>
+                                <li><a href="{% url 'lista_agenda_solicitudes' %}">Agenda de servicios</a></li>
                             </ul>
                         </li>
                         {% comment %} <li><a href="{% url 'servicio' %}">Servicios</a></li> {% endcomment %}

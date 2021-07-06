@@ -2,7 +2,7 @@
 
 <table class="table table-bordered" style="color: black; ">
 
-    <thead>
+    <thead class="thead-light">
         <tr>
             <th colspan="5" class="text-center" >
                    <h4> Detalle compra</h4> 
@@ -38,12 +38,12 @@
                     <td>
                         
                         <!-- <a href="{% url 'agregar' value.id_producto %}" class="btn btn-success">Agregar</a> -->
-                        <a href="{% url 'eliminar' value.id_producto %}" class="btn btn-success">Eliminar</a>
+                        <a href="{% url 'eliminar' value.id_producto %}" class="btn btn-secondary">Eliminar</a>
                         
-
                         <!-- $ {{value.precio}} -->
                     </td>
-                    <!-- <a href="{ % url 'limpiar' value.id_producto %}" class="btn btn-sm btn-success">Limpiar</a> <br> -->
+                    
+
 
 
                 </tr>
@@ -61,7 +61,8 @@
             </tr>
 
         {% endif %}
-            
+        
+                
 
     </tbody>
 
@@ -80,16 +81,18 @@
             
             
         </tr>
-    </tfoot>
 
+    </tfoot>
+    
 </table>
+<a href="{% url 'limpiar' %}" class="btn btn-secondary" style="float: right;">Limpiar</a>
 <br>
 <br>
     <br>
 <div >
   <u style="color: orange;"> <h3 style="color: orange;">  <b> Sección de pagos   </b></h3></u>  <br><br>
 
-    <div id="paypal-button-container"></div>
+    <div id="paypal-button-container" ></div>
 
 </div>
 {% block javascript_paypal %}

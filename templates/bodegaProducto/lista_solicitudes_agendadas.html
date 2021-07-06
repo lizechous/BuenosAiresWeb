@@ -1,0 +1,56 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+
+
+{% block content %}
+<div class="container mt-3 pb-3">
+    <div class="col-md-12">
+    <br>
+    <br>
+<h2> Solicitudes de servicios BA </h2> 
+   <!-- {% comment %} {% if object_list %} {% endcomment %} -->
+    <hr>
+    <table class="table table-hover">
+
+        <thead>
+            <tr>
+                
+                <th>ID solicitud</th>
+                <th>ID tecnico</th>
+                <th>Rut tecnico</th>
+                <th>Acepta fecha visita</th>
+                <th>Fecha visita</th>
+                <th>Estado solicitud</th>
+                
+                
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for agenda in object_list %}
+            <tr>
+                
+                <td>{{ agenda.id_solicitud}}</td>
+                <td>{{ agenda.id_tec}}</td>
+                <td>{{ agenda.rut_tecnico}}</td>
+                <td>{{ agenda.acepta_fecha_visita }}</td>
+                <td>{{ agenda.fecha_visita_tec }}</td> 
+                <td>{{ agenda.estado_ss }}</td>
+                
+                
+               
+                
+                
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+</table>
+
+
+</div>
+</div>
+{% endblock %}
+
+

@@ -39,8 +39,8 @@
                 <td>{{ solicitud.fecha_visita }}</td>
                 <td>{{ solicitud.descripcion_req }}</td>
                 
-                <td><a class="btn btn-primary" style="color:white;">✓</a></td>
-                <td><a class="btn btn-danger" style="color:white;" href="{% url 'eliminar_solicitud' solicitud.id_solicitud %}">X</a></td> 
+                <td><a class="btn btn-primary" style="color:white;" href="{% url 'agendar_solicitud' solicitud.id_solicitud %}">Aceptar</a></td>
+                <td><a class="btn btn-danger" style="color:white;" href="{% url 'eliminar_solicitud' solicitud.id_solicitud %}">Rechazar</a></td> 
                 
                 
                 
